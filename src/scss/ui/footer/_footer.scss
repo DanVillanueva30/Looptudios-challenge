@@ -1,0 +1,111 @@
+@use 'base/variables' as v;
+@use  'base/mixins' as m;
+
+.footer {
+    background-color: v.$negro;
+
+    &__grid {
+        @include m.tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        color: v.$blanco;
+        font-size: 3rem;
+        text-align: center;
+        margin: 0;
+        padding: 5rem 0;
+        font-weight: bold;
+
+        @include m.tablet {
+            text-align: left;
+            padding: 3rem 0;
+        }
+    }
+
+    &__copy {
+        color: v.$grisOscuro;
+        text-align: center;
+        font-size: 1.6rem;
+        margin: 0;
+        padding-bottom: 3rem;
+
+        @include m.tablet {
+            text-align: right;
+            padding: 0;
+        }
+    }
+}
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    &__link {
+        color: v.$blanco;
+        @include m.desktop {
+            padding-bottom: 1rem;
+        
+            &:hover {
+                border-bottom: 2px solid v.$blanco;
+    
+            }
+        }
+    }
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 0;
+    @include m.tablet {
+        justify-content: flex-end;
+        grid-column: 2 / 3;
+    }
+
+    &__img {
+        width: 3rem;
+        padding-bottom: 1rem;
+        &:hover {
+            border-bottom:  3px solid v.$blanco;
+            transition-duration: .3s;
+        }
+    }
+}
+
+.attribution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0 3rem 0;
+
+    @include m.tablet {
+     flex-direction: row; 
+     gap: 3rem;  
+     padding-top: 8rem;
+    }
+
+    &__text {
+        margin: 0;
+        color: v.$gris;
+        font-size: 1.6rem;
+
+    }
+    &__link {
+        margin-left: 1rem;
+        color: v.$blanco;
+    }
+}

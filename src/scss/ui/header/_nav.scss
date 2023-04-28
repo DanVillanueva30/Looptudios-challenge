@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use  'base/mixins' as m;
+
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 10rem;
+
+    &__active {
+        padding-top: 0;
+        background-color: black;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0px;
+        justify-content: center;
+        z-index: 1;
+
+        @include m.tablet {
+            all: unset;
+        }
+    }
+
+    &__hidden {
+        display: none;
+
+        @include m.tablet {
+            display: flex;
+        }
+    }
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 0;
+
+    }
+    &__link {
+        color: v.$blanco;
+        font-family: v.$fuente_secundaria;
+        font-weight: 300;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        padding-left: 5rem;
+
+        @include m.tablet {
+            font-size: 1.6rem;
+            font-family: v.$fuente_principal;
+            font-weight: 400;
+            text-transform: unset;
+            padding: 0;
+        }
+    }
+
+}

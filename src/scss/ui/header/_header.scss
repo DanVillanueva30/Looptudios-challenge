@@ -1,0 +1,70 @@
+@use 'base/variables' as v;
+@use  'base/mixins' as m;
+
+.header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 10rem;
+
+
+
+    &__grid {
+        @include m.tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+    }
+    &__heading {
+        color: v.$blanco;
+        margin: 10rem 0;
+        border: 1px solid v.$blanco;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 3.8rem;
+        line-height: unset;
+
+        @include m.tablet {
+            width: 60%;
+            font-size: 5rem;
+            padding: 2rem;
+            margin: 5rem 0;
+        }
+        @include m.desktop {
+            width: 60%;
+            font-size: 8rem;
+        }
+    }
+
+}
+
+
+.not-avif.not-webp .header {
+    background-image: url(../img/mobile/image-hero.jpg);
+}
+@include m.tablet {
+    .not-avif.not-webp .header {
+        background-image: url(../img/desktop/image-hero.jpg);
+    }
+}
+.webp .header  {
+    background-image: url(../img/mobile/image-hero.webp);
+}
+@include m.tablet {
+    .webp .header  {
+        background-image: url(../img/desktop/image-hero.webp);
+    }
+}
+.avif .header  {
+    background-image: url(../img/mobile/image-hero.webp);
+}
+@include m.tablet {
+    .avif .header  {
+        // background-image: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .1)),url(../img/mobile/image-hero.avif);
+
+        background-image: url(../img/desktop/image-hero.webp);
+    }
+}
+// background-image: linear-gradient(rgba(57,70,89,.7),rgba(57,70,89,.7)),url(../img/header.avif);

@@ -1,0 +1,59 @@
+@use 'variables' as v; 
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+
+@mixin boton($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 2rem 4rem;
+    color: $colorTexto;
+    margin-top: 1rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+
+    @include tablet {
+        display: inline-block;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+// @mixin scrollHorizontal {
+//     overflow-y: hidden; //Todo el contenido arriba y abajo de esta seccion no se podrá dar ese scroll PERO! si en ese contenido
+//     overflow-x: scroll;
+//     scroll-snap-type: x mandatory;// esto hace que se "atora" el contenido al dar scroll y la x es el eje oses de izq a der y visceversa.
+
+//     > * {  //Esto lo aplica al 1er nivel de hijos
+//         scroll-snap-align: center;//una vez que damos scroll y hacemos que se "atore" el contenido debes establecer en que parte y que que posicion, en este caso es en el div individual y queremos que lo centre.
+//     }
+
+//     @include tablet {
+//         overflow-x: auto;
+//     }
+// }
+// @mixin backgroundGradient($direccion, $valor1, $valor2, $url) {
+//     background-image: linear-gradient(to $direccion, v.$negro 0%, v.$negro $valor1, transparent $valor2), url($url);
+// }
